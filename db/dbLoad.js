@@ -6,6 +6,7 @@ const models = require("../modelData/models.js");
 const User = require("../db/userModel.js");
 const Photo = require("../db/photoModel.js");
 const SchemaInfo = require("../db/schemaInfo.js");
+const Comment = require("../db/commentModel.js");
 
 const versionString = "1.0";
 
@@ -20,6 +21,7 @@ async function dbLoad() {
   await User.deleteMany({});
   await Photo.deleteMany({});
   await SchemaInfo.deleteMany({});
+  await Comment.deleteMany({});
 
   const userModels = models.userListModel();
   const mapFakeId2RealId = {};  for (const user of userModels) {
